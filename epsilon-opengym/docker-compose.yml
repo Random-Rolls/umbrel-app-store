@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    depends_on:
+      - web
+    environment:
+      APP_HOST: epsilon-opengym_web_1
+      APP_PORT: 80
+
+  api:
+    image: ghcr.io/duartesantos8/opengym-api:1.4.5@sha256:397c83e9ac33a413bc8f21e66b2e55038100fc7f9da900d80be28b30fbb12ea8
+    restart: on-failure
+    environment:
+      - PORT=3000
+      - DATA_DIR=/data
+      - TRUST_PROXY=1
+      - RP_ID=${DEVICE_DOMAIN_NAME}
+      - ORIGIN=http://${DEVICE_DOMAIN_NAME}:${APP_PROXY_PORT}
+      - RP_NAME=openGym
+      - SESSION_DAYS=90
+      - PASSWORD_LOGIN=1
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+      - ${APP_DATA_DIR}/coach-auth:/coach-auth
+    container_name: epsilon-opengym_api_1
+
+  web:
+    image: ghcr.io/duartesantos8/opengym-web:1.4.5@sha256:e621677554302a0e1745e3b8c90acddc7d7149e118c4d683d51c13aa88f47d27
+    restart: on-failure
+    depends_on:
+      api:
+        condition: service_started
+    environment:
+      - NGINX_PORT=80
+      - BACKEND=api
+      - PORT=3000
+      - MEDIA_UPLOAD_MAX=48m
+    container_name: epsilon-opengym_web_1

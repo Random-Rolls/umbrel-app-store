@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: epsilon-materialious
+name: Materialious
+tagline: Material design YouTube frontend for your Invidious
+icon: https://raw.githubusercontent.com/Materialious/Materialious/main/materialious/static/logo.svg
+category: social
+version: "1.18.27"
+port: 3421
+description: >-
+  Materialious is a privacy-friendly YouTube front end for your own Invidious
+  instance. This package runs the full web build, with its built-in account system
+  (encrypted subscriptions, watch history and progress syncing) and its own CORS
+  proxy.
+
+
+  It looks for Invidious on this same device at port 3420. If your Invidious runs
+  somewhere else, change PUBLIC_DEFAULT_INVIDIOUS_INSTANCE in docker-compose.yml.
+developer: WardPearce
+website: https://materialio.us
+dependencies: []
+repo: https://github.com/Materialious/Materialious
+support: https://github.com/Materialious/Materialious/issues
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: >-
+  Updated to Materialious 1.18.27. The Invidious address is now taken from your
+  device name instead of a fixed address, so the app keeps working if your Umbrel
+  address changes.
