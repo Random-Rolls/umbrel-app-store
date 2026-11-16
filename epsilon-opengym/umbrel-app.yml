@@ -2,7 +2,7 @@ manifestVersion: 1
 id: epsilon-opengym
 category: files
 name: openGym
-version: "1.4.5"
+version: "1.4.6"
 tagline: Self-hosted workout and body-weight tracker
 icon: https://raw.githubusercontent.com/DuarteSantos8/openGym/main/frontend/public/icon-512.png
 description: >-
@@ -18,8 +18,14 @@ description: >-
   Everything is stored in this app's data directory on your Umbrel: no account on
   anyone else's server, no subscription, no telemetry.
 releaseNotes: >-
-  openGym 1.4.5: Apple Watch redesign, 26 languages, per-set effort ratings (RIR/RPE),
-  timed holds, supersets, estimated 1RM and staged database upgrades.
+  Packaging fix (same openGym 1.4.5 code): the web front end is now pinned to this
+  app's own API container instead of the generic name "api", which on Umbrel's shared
+  Docker network could resolve to another app's API. That is what made creating a
+  profile and signing in fail with "not found".
+
+
+  openGym 1.4.5 features: Apple Watch redesign, 26 languages, per-set effort ratings
+  (RIR/RPE), timed holds, supersets, estimated 1RM and staged database upgrades.
 
 developer: Duarte Santos
 website: https://opengym.duarte-santos.ch
