@@ -4,7 +4,7 @@ name: Materialious
 tagline: Material design YouTube frontend for your Invidious
 icon: https://raw.githubusercontent.com/Materialious/Materialious/main/materialious/static/logo.svg
 category: social
-version: "1.18.27"
+version: "1.18.30"
 port: 3421
 description: >-
   Materialious is a privacy-friendly YouTube front end for your own Invidious
@@ -25,6 +25,4 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Updated to Materialious 1.18.27. The Invidious address is now taken from your
-  device name instead of a fixed address, so the app keeps working if your Umbrel
-  address changes.
+  Go to the home page after linking Invidious on mobile; the rest of this update is internal housekeeping.

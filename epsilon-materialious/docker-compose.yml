@@ -7,7 +7,7 @@ services:
       APP_PORT: 3000
 
   web:
-    image: wardpearce/materialious-full:1.18.27
+    image: wardpearce/materialious-full:1.18.30
     restart: on-failure
     stop_grace_period: 1m
     environment:
