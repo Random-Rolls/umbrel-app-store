@@ -4,7 +4,7 @@ name: Materialious
 tagline: Material design YouTube frontend for your Invidious
 icon: https://raw.githubusercontent.com/Materialious/Materialious/main/materialious/static/logo.svg
 category: social
-version: "1.18.30"
+version: "1.18.33"
 port: 3421
 description: >-
   Materialious is a privacy-friendly YouTube front end for your own Invidious
@@ -25,4 +25,4 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Go to the home page after linking Invidious on mobile; the rest of this update is internal housekeeping.
+  Added two-factor authentication support, and cached sign-in challenges now refresh themselves instead of going stale.
