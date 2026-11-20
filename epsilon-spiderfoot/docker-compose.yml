@@ -1,0 +1,51 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    depends_on:
+      - web
+    environment:
+      APP_HOST: epsilon-spiderfoot_web_1
+      APP_PORT: 5001
+
+  # Umbrel bind-mounts the app data folder as root. Prepare it once for the
+  # unprivileged user the SpiderFoot image runs as.
+  init:
+    image: joshuapfritz/spiderfoot:v4.0-update@sha256:1e31c164cd73bb3482017e06357e72d1d4e529f7d0056e53d7579be1c73f9803
+    user: "0:0"
+    restart: "no"
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["mkdir -p /data && chown 10001:10001 /data"]
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+
+  web:
+    image: joshuapfritz/spiderfoot:v4.0-update@sha256:1e31c164cd73bb3482017e06357e72d1d4e529f7d0056e53d7579be1c73f9803
+    container_name: epsilon-spiderfoot_web_1
+    restart: on-failure
+    stop_grace_period: 1m
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    user: "10001:10001"
+    environment:
+      - HOME=/data
+      - SPIDERFOOT_DATA=/data/spiderfoot
+      - SPIDERFOOT_LOGS=/data/logs
+      - SPIDERFOOT_CACHE=/data/cache
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test:
+        - CMD
+        - python3
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5001/', timeout=10)"
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 30s

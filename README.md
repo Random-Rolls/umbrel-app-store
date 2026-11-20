@@ -7,8 +7,9 @@ A small Umbrel community app store. Add it in umbrelOS under **App Store → Com
 | App | ID | Notes |
 | --- | --- | --- |
 | Ente Photos | `epsilon-ente-photos` | Self-hosted Ente server and web client. |
-| openGym | `epsilon-opengym` | openGym 1.4.5, API and web images pinned by digest. |
-| Materialious | `epsilon-materialious` | Materialious 1.18.27, pointed at a self-hosted Invidious instance. |
+| openGym | `epsilon-opengym` | openGym 1.4.6, API and web images pinned by digest. |
+| Materialious | `epsilon-materialious` | Materialious 1.18.35, pointed at a self-hosted Invidious instance. |
+| SpiderFoot | `epsilon-spiderfoot` | SpiderFoot 4.0 OSINT scanner, container pinned by digest. |
 
 ## How updates work
 

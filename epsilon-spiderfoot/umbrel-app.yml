@@ -1,0 +1,46 @@
+manifestVersion: 1
+id: epsilon-spiderfoot
+category: networking
+name: SpiderFoot
+version: "4.0.0"
+tagline: Automated OSINT reconnaissance for domains, IPs, emails and names
+icon: https://raw.githubusercontent.com/smicallef/spiderfoot/master/spiderfoot/static/img/spiderfoot-icon.png
+description: >-
+  SpiderFoot automates open-source intelligence collection. Point it at a domain,
+  IP address, hostname, email address, phone number or person's name and it runs
+  the matching modules across public sources, correlating what it finds into one
+  investigation.
+
+
+  It ships with more than 200 modules covering DNS and WHOIS records, certificate
+  transparency, search engines, breach and paste data, social networks, threat
+  intelligence feeds, technology fingerprinting and attack-surface mapping. Results
+  can be browsed as a table, a graph or exported, and scans can be scheduled or
+  repeated against the same target.
+
+
+  This package runs the classic single-container SpiderFoot 4.0 release, with its
+  database, cache, logs and scan history kept in this app's data folder. The web
+  interface has no built-in user accounts, so keep Umbrel's login requirement on
+  for this app unless you add your own authentication in front of it.
+
+
+  Scans make outbound requests to many third-party sites, and modules that need
+  Tor (.onion) will not work until a Tor proxy is configured. Modules that use
+  third-party APIs need their own free or paid API keys, added in SpiderFoot's
+  settings after installation.
+releaseNotes: >-
+  First release: SpiderFoot 4.0 in a single hardened container. The database,
+  cache, logs and scan history live in the app's data folder, so they survive
+  app updates.
+developer: Steve Micallef (SpiderFoot), container by Joshua P. Fritz
+website: https://www.spiderfoot.net
+dependencies: []
+repo: https://github.com/smicallef/spiderfoot
+support: https://github.com/smicallef/spiderfoot/issues
+
+port: 5001
+path: ""
+
+defaultUsername: ""
+defaultPassword: ""
