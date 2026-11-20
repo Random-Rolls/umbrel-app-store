@@ -2,7 +2,7 @@ manifestVersion: 1
 id: epsilon-redlib
 category: social
 name: Redlib
-version: "0.69.0"
+version: "0.69.1"
 tagline: Private, ad-free Reddit front-end
 icon: https://raw.githubusercontent.com/Nachtalb/redlib/main/static/logo.png
 description: >-
@@ -19,9 +19,9 @@ description: >-
 
   Voting and posting are not supported.
 releaseNotes: >-
-  Switched to the maintained Nachtalb fork (v0.69.0), which works around
-  Reddit's 2026 block of logged-out API access. Listings load without an
-  account; comments and search need a Reddit session cookie.
+  Packaging update: the app now mounts a small data folder so a throwaway
+  Reddit session cookie can be dropped in at any time. The app re-reads it
+  live, which unlocks comment threads, search, profiles and wiki pages.
 developer: Nachtalb
 website: https://github.com/Nachtalb/redlib
 dependencies: []
