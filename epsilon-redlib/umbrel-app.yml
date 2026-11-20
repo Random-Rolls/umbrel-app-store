@@ -2,32 +2,31 @@ manifestVersion: 1
 id: epsilon-redlib
 category: social
 name: Redlib
-version: "0.40.0"
+version: "0.69.0"
 tagline: Private, ad-free Reddit front-end
-icon: https://raw.githubusercontent.com/redlib-org/redlib/main/static/logo.png
+icon: https://raw.githubusercontent.com/Nachtalb/redlib/main/static/logo.png
 description: >-
-  Redlib is a private front-end to Reddit, written in Rust. It fetches every
-  page on your behalf, strips ads, trackers and JavaScript, and needs no Reddit
-  account.
+  Redlib is a private front-end to Reddit, written in Rust. It fetches pages on
+  your behalf, strips ads, trackers and JavaScript, and needs no Reddit account.
 
 
-  All Reddit requests leave from this device's internet connection. Reddit
-  blocks JSON and API access from many VPN and datacenter addresses, so if this
-  device browses through a VPN and Redlib shows "Failed to parse page JSON
-  data", white-list this device in the router's VPN settings or point Redlib
-  at a connection Reddit accepts.
+  This build is the maintained Nachtalb fork (v0.69.0). Since late 2026 Reddit
+  refuses most of its data API to logged-out clients, so front pages, subreddit
+  listings and profiles load normally, while comment threads and search show
+  "Reddit only serves this page to logged-in sessions". Adding a throwaway
+  Reddit session cookie (REDLIB_REDDIT_COOKIE) restores those pages.
 
 
-  Redlib supports a signed-out subset of Reddit: front pages, subreddits,
-  posts, comments, user profiles and search. Voting and posting are not
-  supported.
+  Voting and posting are not supported.
 releaseNotes: >-
-  First release: Redlib 0.40.0 in a single small container.
-developer: redlib-org
-website: https://github.com/redlib-org/redlib
+  Switched to the maintained Nachtalb fork (v0.69.0), which works around
+  Reddit's 2026 block of logged-out API access. Listings load without an
+  account; comments and search need a Reddit session cookie.
+developer: Nachtalb
+website: https://github.com/Nachtalb/redlib
 dependencies: []
-repo: https://github.com/redlib-org/redlib
-support: https://github.com/redlib-org/redlib/issues
+repo: https://github.com/Nachtalb/redlib
+support: https://github.com/Nachtalb/redlib/issues
 
 port: 3422
 path: ""

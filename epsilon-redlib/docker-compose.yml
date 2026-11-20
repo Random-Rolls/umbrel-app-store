@@ -9,14 +9,16 @@ services:
       APP_PORT: 8080
 
   web:
-    # Pinned to the multi-arch index published for Redlib 0.40.0 (commit ba116c1).
-    image: quay.io/redlib/redlib@sha256:37f624d87ce6cdd90d945af3688fdf0c195a0251d3b5ba62047792e8be2390df
+    # Nachtalb fork, build 856c6e0 (image created 2026-11-15), multi-arch index.
+    image: ghcr.io/nachtalb/redlib@sha256:37a6d73271029d9a2071c4c8ff9a258d64e14379863dbc8a3cf30a038e5f23d2
     container_name: epsilon-redlib_web_1
     restart: on-failure
     stop_grace_period: 1m
     environment:
       - PORT=8080
       - REDLIB_ROBOTS_DISABLE_INDEXING=on
+      # Optional: unlock comment threads and search with a throwaway account,
+      # e.g. - REDLIB_REDDIT_COOKIE=reddit_session=...
     security_opt:
       - no-new-privileges:true
     cap_drop:
