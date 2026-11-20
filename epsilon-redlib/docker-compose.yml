@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    depends_on:
+      - web
+    environment:
+      APP_HOST: epsilon-redlib_web_1
+      APP_PORT: 8080
+
+  web:
+    # Pinned to the multi-arch index published for Redlib 0.40.0 (commit ba116c1).
+    image: quay.io/redlib/redlib@sha256:37f624d87ce6cdd90d945af3688fdf0c195a0251d3b5ba62047792e8be2390df
+    container_name: epsilon-redlib_web_1
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      - PORT=8080
+      - REDLIB_ROBOTS_DISABLE_INDEXING=on
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
