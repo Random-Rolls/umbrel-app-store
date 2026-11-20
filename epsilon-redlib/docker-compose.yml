@@ -17,8 +17,11 @@ services:
     environment:
       - PORT=8080
       - REDLIB_ROBOTS_DISABLE_INDEXING=on
-      # Optional: unlock comment threads and search with a throwaway account,
-      # e.g. - REDLIB_REDDIT_COOKIE=reddit_session=...
+      # Optional: unlock comments/search with throwaway account sessions.
+      # The file lives on the NAS (never in this repo) and is re-read live.
+      - REDLIB_REDDIT_COOKIE_FILE=/data/sessions.txt
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
     security_opt:
       - no-new-privileges:true
     cap_drop:
